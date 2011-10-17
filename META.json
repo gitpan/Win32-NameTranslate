@@ -1,0 +1,47 @@
+{
+   "abstract" : "Convenience perl wrapper around IADsNameTranslate interface",
+   "author" : [
+      "Chris Williams <chris@bingosnet.co.uk>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.300002, CPAN::Meta::Converter version 2.112621",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Win32-NameTranslate",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Test::More" : "0.47"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.30"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Exporter" : 0,
+            "Win32::OLE" : 0,
+            "constant" : 0,
+            "perl" : "5.006"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "homepage" : "https://github.com/bingos/win32-nametranslate",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/bingos/win32-nametranslate.git",
+         "web" : "https://github.com/bingos/win32-nametranslate"
+      }
+   },
+   "version" : "0.02"
+}
+
