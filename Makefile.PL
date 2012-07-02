@@ -26,7 +26,7 @@ my %WriteMakefileArgs = (
     "Win32::OLE" => 0,
     "constant" => 0
   },
-  "VERSION" => "0.02",
+  "VERSION" => "0.04",
   "test" => {
     "TESTS" => "t/*.t"
   }

@@ -1,3 +1,14 @@
+==============================
+2012-07-02 15:55:54 +0100 0.04
+==============================
+
+  commit ebb4b6d4921c3a8c1251161564087a7300f33b8e
+  Author: Chris 'BinGOs' Williams <chris@bingosnet.co.uk>
+  Date:   Mon Jul 2 15:55:54 2012 +0100
+  
+    Check return value of Set and SetEx and provide proper success or
+    failure 
+
 ====================================
 End of changes in the last 1825 days
 ====================================

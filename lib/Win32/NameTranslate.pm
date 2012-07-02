@@ -1,6 +1,6 @@
 package Win32::NameTranslate;
 {
-  $Win32::NameTranslate::VERSION = '0.02';
+  $Win32::NameTranslate::VERSION = '0.04';
 }
 
 #ABSTRACT: Convenience perl wrapper around IADsNameTranslate interface
@@ -72,7 +72,8 @@ sub set {
     $self->{_set} = 'set';
     $self->{_trans}->Set( $type, $set );
   }
-  return 1;
+  my $res = Win32::OLE->LastError;
+  return Win32::OLE::HRESULT( $res ) == 0 ? 1 : 0;
 }
 
 sub get {
@@ -102,7 +103,7 @@ Win32::NameTranslate - Convenience perl wrapper around IADsNameTranslate interfa
 
 =head1 VERSION
 
-version 0.02
+version 0.04
 
 =head1 DESCRIPTION
 
@@ -118,6 +119,7 @@ easier to use.
   use strict;
   use warnings;
   use Win32::NameTranslate qw[:all];
+  use Win32::OLE;
 
   # Create a new name translator, using Global Catalog
   my $trans = Win32::NameTranslate->new( ADS_NAME_INITTYPE_GC );
@@ -125,7 +127,7 @@ easier to use.
   my $canonical = 'localdomain.local/_SomeOU/_AnotherOU/Tommy Tester';
 
   # Specify Canonical format and name to lookup
-  $trans->set( ADS_NAME_TYPE_CANONICAL, $canonical );
+  $trans->set( ADS_NAME_TYPE_CANONICAL, $canonical ) || die Win32::OLE->LastError;
 
   # Lets get the RFC 1779 'LDAP' type name
   my $rfc = $trans->get( ADS_NAME_TYPE_1779 );
@@ -138,7 +140,7 @@ easier to use.
   );
 
   # We can lookup multiple names by providing an arrayref
-  $trans->set( ADS_NAME_TYPE_CANONICAL, \@multiple );
+  $trans->set( ADS_NAME_TYPE_CANONICAL, \@multiple ) || die Win32::OLE->LastError;
 
   my @rfcs = $trans->get( ADS_NAME_TYPE_1779 );
 
@@ -286,6 +288,8 @@ Examples:
   # translate a number of names from Canonical name format
   $trans->set( ADS_NAME_TYPE_CANONICAL, [ "Fabrikam.com/Users/Jeff Smith", "Fabrikam.com/Users/Johnny Rotten", "Fabrikam.com/Users/Billy Bookcase" ] );
 
+The method will return a C<true> value on success or C<false> on failure. You may check C<< Win32::OLE->LastError >> to see what the error was.
+
 =item C<get>
 
 Retrieves the name of a directory object in the specified format. C<set> must be called before using this method. This is a single wrapper
@@ -324,7 +328,7 @@ Chris Williams <chris@bingosnet.co.uk>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Chris Williams.
+This software is copyright (c) 2012 by Chris Williams.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
