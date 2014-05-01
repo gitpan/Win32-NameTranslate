@@ -1,8 +1,5 @@
 package Win32::NameTranslate;
-{
-  $Win32::NameTranslate::VERSION = '0.04';
-}
-
+$Win32::NameTranslate::VERSION = '0.06';
 #ABSTRACT: Convenience perl wrapper around IADsNameTranslate interface
 
 use strict;
@@ -93,9 +90,11 @@ sub get {
 
 q[I translate, therefore I am];
 
-
 __END__
+
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -103,7 +102,7 @@ Win32::NameTranslate - Convenience perl wrapper around IADsNameTranslate interfa
 
 =head1 VERSION
 
-version 0.04
+version 0.06
 
 =head1 DESCRIPTION
 
@@ -217,7 +216,7 @@ User principal name format. For example, "JeffSmith@Fabrikam.com".
 
 Extended canonical name format. For example, "Fabrikam.com/Users Jeff Smith".
 
-C<ADS_NAME_TYPE_SERVICE_PRINCIPAL_NAME>
+=item C<ADS_NAME_TYPE_SERVICE_PRINCIPAL_NAME>
 
 Service principal name format. For example, "www/www.fabrikam.com@fabrikam.com".
 
@@ -328,10 +327,9 @@ Chris Williams <chris@bingosnet.co.uk>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Chris Williams.
+This software is copyright (c) 2014 by Chris Williams.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

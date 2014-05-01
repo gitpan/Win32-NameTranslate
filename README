@@ -3,7 +3,7 @@ NAME
     interface
 
 VERSION
-    version 0.04
+    version 0.06
 
 DESCRIPTION
     Win32::NameTranslate is a convenience wrapper around the
@@ -108,8 +108,7 @@ EXPORTS
             Extended canonical name format. For example, "Fabrikam.com/Users
             Jeff Smith".
 
-            "ADS_NAME_TYPE_SERVICE_PRINCIPAL_NAME"
-
+        "ADS_NAME_TYPE_SERVICE_PRINCIPAL_NAME"
             Service principal name format. For example,
             "www/www.fabrikam.com@fabrikam.com".
 
@@ -216,7 +215,7 @@ AUTHOR
     Chris Williams <chris@bingosnet.co.uk>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2012 by Chris Williams.
+    This software is copyright (c) 2014 by Chris Williams.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
